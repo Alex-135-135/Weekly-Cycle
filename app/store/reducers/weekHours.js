@@ -31,7 +31,9 @@ function weekHours(state = {}, action) {
 
 function getNewDay(state, action){
   const {day, hour, setHour} = action;
+
   const newHour = {bt: hour*60};
+        newHour.et = newHour.bt+59;
 
   let newDay = [];
   if (setHour) { //remove interval
@@ -88,7 +90,6 @@ function getNewDay(state, action){
                              === 24;
      newDay = fullDay ? [{bt: 0, et: 1439}] : newDay;
   }
-
   return newDay;
 }
 export default weekHours;
