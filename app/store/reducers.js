@@ -3,8 +3,14 @@ import { createStore } from 'redux';
 // import the root reducer
 import rootReducer from './reducers/index';
 
-import weekHours from '../data/data.json';
+import week from '../data/data.json';
 
+if(JSON.parse(localStorage.getItem('basketData'))==null){
+  localStorage.setItem('basketData', JSON.stringify(week));
+}
+
+let weekHours = JSON.parse(localStorage.getItem('basketData')) || week;
+console.log(JSON.parse(localStorage.getItem('basketData')) || week)
 const selectAllDay = getAllDaySelect(weekHours);
 
 // create an object for the default data

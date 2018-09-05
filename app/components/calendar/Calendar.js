@@ -15,7 +15,7 @@ class Calendar extends Component {
           {Object.keys(this.props.weekHours).map((day, i) => <CalendarRow {...this.props} key={i} i={i} day={day} />)}
           <p className='btn'>
               <button className='clear' type='button' onClick={this.props.clear.bind(null)}>Clear</button>
-              <button className='save' type='button' onClick={()=> console.log(this.props.weekHours) }>Save Changes</button>
+              <button className='save' type='button' onClick={()=> localStorage.setItem('basketData', JSON.stringify(this.props.weekHours))}>Save Changes</button>
           </p>
         </div>
       );
